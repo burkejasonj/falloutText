@@ -1,27 +1,75 @@
 {
-  "gameInfo": {
-    "title": "Fallout D20",
-    "version": 1.0,
-    "branch": "dev",
+  "gameInfo":{
+    "title":"Fallout D20",
+    "version":1.0,
+    "branch":"dev"
   },
-  "races": [
-    "race": {
-      "name": "human",
-      "isDefault": true,
-      "statMin": [1, 1, 1, 1, 1, 1, 1],
-      "statMax": [10, 10, 10, 10, 10, 10, 10]
+  "races":{
+    "raceHuman":{
+      "name":"human",
+      "isDefault":true,
+      "statMin":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "statMax":[
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
     },
-    "race": {
-      "name": "ghoul",
-      "isDefault": false,
-      "statMin": [1, 1, 1, 1, 1, 1, 1],
-      "statMax": [10, 10, 10, 10, 10, 10, 10]
+    "raceGhoul":{
+      "name":"ghoul",
+      "isDefault":false,
+      "statMin":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "statMax":[
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
     },
-    "race": {
-      "name": "mutant",
-      "isDefault": false,
-      "statMin": [1, 1, 1, 1, 1, 1, 1],
-      "statMax": [10, 10, 10, 10, 10, 10, 10]
+    "raceMutant":{
+      "name":"mutant",
+      "isDefault":false,
+      "statMin":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "statMax":[
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
     }
-  ]
+  }
 }

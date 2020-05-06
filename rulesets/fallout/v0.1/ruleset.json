@@ -3,14 +3,25 @@
     "title": "Fallout D20",
     "version": 1.0,
     "branch": "dev",
-    "statSystem": "SPECIAL"
   },
-  "races": {
+  "races": [
     "race": {
       "name": "human",
       "isDefault": true,
       "statMin": [1, 1, 1, 1, 1, 1, 1],
       "statMax": [10, 10, 10, 10, 10, 10, 10]
+    },
+    "race": {
+      "name": "ghoul",
+      "isDefault": false,
+      "statMin": [1, 1, 1, 1, 1, 1, 1],
+      "statMax": [10, 10, 10, 10, 10, 10, 10]
+    },
+    "race": {
+      "name": "mutant",
+      "isDefault": false,
+      "statMin": [1, 1, 1, 1, 1, 1, 1],
+      "statMax": [10, 10, 10, 10, 10, 10, 10]
     }
-  }
+  ]
 }

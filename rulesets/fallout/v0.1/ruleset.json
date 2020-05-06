@@ -1,8 +1,9 @@
 {
   "gameInfo":{
-    "title":"Fallout D20",
-    "version":1.0,
-    "branch":"dev"
+    "title":"Fallout: D20 Compliant Edition",
+    "version":0.1,
+    "branch":"dev",
+    "author":"burkejasonj"
   },
   "races":{
     "raceHuman":{
@@ -25,7 +26,17 @@
         10,
         10,
         10
-      ]
+      ],
+      "statDefault":[
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "statPoints":40
     },
     "raceGhoul":{
       "name":"ghoul",
@@ -47,7 +58,17 @@
         10,
         10,
         10
-      ]
+      ],
+      "statDefault":[
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "statPoints":40
     },
     "raceMutant":{
       "name":"mutant",
@@ -62,14 +83,24 @@
         1
       ],
       "statMax":[
+        13,
         10,
         10,
         10,
         10,
-        10,
-        10,
+        7,
         10
-      ]
+      ],
+      "statDefault":[
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "statPoints":40
     }
   }
 }

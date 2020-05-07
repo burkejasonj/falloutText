@@ -2,6 +2,7 @@ import json
 import io
 import os
 
+
 def main():
     # TODO: init variables
 
@@ -14,8 +15,20 @@ def main():
 
     # TODO: ask for ruleset name and version
 
-    ruleset = io.open("rulesets/fallout/v0.1/ruleset.json", "r")
-    rules = json.load(ruleset)
+    rulesetManifest = io.open("rulesets/manifest.json", 'r')
+    rulesetManifest = json.load(rulesetManifest)
+    print("Please select one of the following:")
+    for slot in rulesetManifest['availableGames']:
+        print(rulesetManifest['availableGames'][slot]['callName'])
+    slotID = input("? ")
+    for slot in rulesetManifest['availableGames']:
+        if slotID == rulesetManifest['availableGames'][slot]['callName']:
+            rules = io.open(rulesetManifest['availableGames'][slot]['manifestLocation'])
+            rules = json.load(rules)
+            break
+        else:
+            continue
+
     print(rules['gameInfo']['title']+' Version '+str(rules['gameInfo']['version'])+' Branch '+rules['gameInfo']['branch']+'\nRules by '+rules['gameInfo']['author'])
 
     # TODO: get ruleset object from json

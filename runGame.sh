@@ -1,1 +1,1 @@
-python src/com.JandL.falloutText/main.py
+python3.8 src/com.JandL.falloutText/main.py

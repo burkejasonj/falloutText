@@ -6,14 +6,14 @@ import os
 def main():
     # TODO: init variables
 
-    # TODO: init screen
+    # Init screen
 
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
-    # TODO: ask for ruleset name and version
+    # Ask for ruleset name and version
 
     rulesetManifest = io.open("rulesets/manifest.json", 'r')
     rulesetManifest = json.load(rulesetManifest)
@@ -21,9 +21,12 @@ def main():
     for slot in rulesetManifest['availableGames']:
         print(rulesetManifest['availableGames'][slot]['callName'])
     slotID = input("? ")
+
+    # Get ruleset object from json
+
     for slot in rulesetManifest['availableGames']:
         if slotID == rulesetManifest['availableGames'][slot]['callName']:
-            print(rulesetManifest['availableGames'][slot]['manifestLocation'])
+            # TODO: Add try/except for manifest.json
             rules = io.open(rulesetManifest['availableGames'][slot]['manifestLocation'])
             rules = json.load(rules)
             break
@@ -31,8 +34,6 @@ def main():
             continue
 
     print(rules['gameInfo']['title']+' Version '+str(rules['gameInfo']['version'])+' Branch '+rules['gameInfo']['branch']+'\nRules by '+rules['gameInfo']['author'])
-
-    # TODO: get ruleset object from json
 
     # TODO: run game
 

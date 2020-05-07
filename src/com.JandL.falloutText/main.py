@@ -23,6 +23,7 @@ def main():
     slotID = input("? ")
     for slot in rulesetManifest['availableGames']:
         if slotID == rulesetManifest['availableGames'][slot]['callName']:
+            print(rulesetManifest['availableGames'][slot]['manifestLocation'])
             rules = io.open(rulesetManifest['availableGames'][slot]['manifestLocation'])
             rules = json.load(rules)
             break

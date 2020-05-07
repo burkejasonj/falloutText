@@ -4,6 +4,8 @@ import os
 
 
 def main():
+    # Perk info from https://fallout.fandom.com/wiki/Fallout_76_perks
+
     # TODO: init variables
 
     # Init screen

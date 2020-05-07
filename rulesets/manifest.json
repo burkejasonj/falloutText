@@ -1,0 +1,8 @@
+{
+  "availableGames":{
+    "slot1":{
+      "callName":"falloutD20",
+      "manifestLocation":"rulesets/fallout/manifest.json"
+    }
+  }
+}

@@ -36,7 +36,9 @@
         4,
         4
       ],
-      "statPoints":40
+      "statPoints":40,
+      "perkPoints":2,
+      "tagPoints":3
     },
     "raceGhoul":{
       "name":"ghoul",
@@ -68,7 +70,9 @@
         4,
         4
       ],
-      "statPoints":40
+      "statPoints":40,
+      "perkPoints":2,
+      "tagPoints":3
     },
     "raceMutant":{
       "name":"mutant",
@@ -83,12 +87,12 @@
         1
       ],
       "statMax":[
-        13,
         10,
         10,
         10,
         10,
-        7,
+        10,
+        10,
         10
       ],
       "statDefault":[
@@ -100,7 +104,39 @@
         4,
         4
       ],
-      "statPoints":40
+      "statPoints":40,
+      "perkPoints":2,
+      "tagPoints":3
     }
-  }
+  },
+  "primaryStats":{
+    "Strength":"Strength is a measure of your raw physical power. It affects how much you carry, and the damage of all melee attacks.",
+    "Perception":"Perception affects your awareness of nearby enemies, your ability to detect stealthy movement, and your weapon accuracy in V.A.T.S.",
+    "Endurance":"Endurance is a measure of your overall physical fitness. It affects your total Health, the Action Point drain from sprinting, and your resistance to disease.",
+    "Charisma":"Charisma is your ability to lead and help others. It allows you to share your Perk Cards (CHA must be greater than or equal to 3 times the point value of the card you wish to share) and also affects your rewards from Group Quests and prices when you barter.",
+    "Intelligence":"Intelligence is a measure of overall mental acuity, and affects your ability to hack terminals, the condition and durability of items that you craft, and the return you get from scrapping.",
+    "Agility":"Agility is a measure of your overall finesse and reflexes. It affects the number of Action Points in V.A.T.S. and your ability to sneak.",
+    "Luck":"Luck is a measure of your overall good fortune, and affects the recharge rate of critical hits as well as the condition and durability of items you loot.",
+  },
+  "skillStats":{
+    "Small Guns":"",
+    "Big Guns":"",
+    "Energy Weapons":"",
+    "Unarmed":"",
+    "Melee Weapons":"",
+    "Explosives":"",
+    "Lockpick":"",
+    "Medicine":"",
+    "Repair":"",
+    "Science":"",
+    "Sneak":"",
+    "Barter":"",
+    "Speech":""
+  },
+  "perkStats":{
+    "Bandolier":[
+      "Ballistic weapon ammo weighs 45% less.",
+      "Ballistic weapon ammo weighs 90% less."
+    ]
+  },
 }

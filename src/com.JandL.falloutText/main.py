@@ -1,7 +1,7 @@
-import json
-import io
-import os
+from colorama import init
+from colorama import Fore, Back, Style
 import gameEngine as engine
+import io, json, os
 
 
 def main():
@@ -9,8 +9,14 @@ def main():
 
     # TODO: init variables
 
+    outputLevel = engine.renderEngine.outputLevel
+
     # Init screen
 
+    # Init win32 ANSI handler
+    init()
+
+    # Init screen to blank slate
     if os.name == "nt":
         os.system("cls")
     else:
@@ -36,8 +42,8 @@ def main():
         else:
             continue
 
-    print(
-        rules["gameInfo"]["title"]
+    print(outputLevel.WARN
+        + rules["gameInfo"]["title"]
         + " Version "
         + str(rules["gameInfo"]["version"])
         + " Branch "
@@ -47,6 +53,7 @@ def main():
     )
 
     # TODO: run game
+    engine.renderEngine.executeBuffer()
 
 
 if __name__ == "__main__":

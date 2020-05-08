@@ -26,7 +26,7 @@ class renderEngine:
         WARN = "\033[33;40m"
         INFO = "\033[37;40m"
         ERROR = "\033[31;40m"
-        DEBUG = ""
+        DEBUG = "\033[36;40m"
 
     # TODO: define calls to screen buffer
 

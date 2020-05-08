@@ -23,9 +23,9 @@ class renderEngine:
     # TODO: define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
 
     class outputLevel:
-        WARN = "\033[31;40m"
+        WARN = "\033[33;40m"
         INFO = "\033[37;40m"
-        ERROR = ""
+        ERROR = "\033[31;40m"
         DEBUG = ""
 
     # TODO: define calls to screen buffer

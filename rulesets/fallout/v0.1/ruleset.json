@@ -116,7 +116,7 @@
     "Charisma":"Charisma is your ability to lead and help others. It allows you to share your Perk Cards (CHA must be greater than or equal to 3 times the point value of the card you wish to share) and also affects your rewards from Group Quests and prices when you barter.",
     "Intelligence":"Intelligence is a measure of overall mental acuity, and affects your ability to hack terminals, the condition and durability of items that you craft, and the return you get from scrapping.",
     "Agility":"Agility is a measure of your overall finesse and reflexes. It affects the number of Action Points in V.A.T.S. and your ability to sneak.",
-    "Luck":"Luck is a measure of your overall good fortune, and affects the recharge rate of critical hits as well as the condition and durability of items you loot.",
+    "Luck":"Luck is a measure of your overall good fortune, and affects the recharge rate of critical hits as well as the condition and durability of items you loot."
   },
   "skillStats":{
     "Small Guns":"The use, care and general knowledge of small firearms - pistols, SMGs and rifles.",

@@ -119,24 +119,28 @@
     "Luck":"Luck is a measure of your overall good fortune, and affects the recharge rate of critical hits as well as the condition and durability of items you loot.",
   },
   "skillStats":{
-    "Small Guns":"",
-    "Big Guns":"",
-    "Energy Weapons":"",
-    "Unarmed":"",
-    "Melee Weapons":"",
-    "Explosives":"",
-    "Lockpick":"",
-    "Medicine":"",
-    "Repair":"",
-    "Science":"",
-    "Sneak":"",
-    "Barter":"",
-    "Speech":""
+    "Small Guns":"The use, care and general knowledge of small firearms - pistols, SMGs and rifles.",
+    "Big Guns":"The operation and maintenance of really big guns - miniguns, rocket launchers, flamethrowers and such.",
+    "Energy Weapons":"The care and feeding of energy-based weapons. How to arm and operate weapons that use laser or plasma technology.",
+    "Unarmed":"A combination of martial arts, boxing and other hand-to-hand martial arts. Combat with your hands and feet.",
+    "Melee Weapons":"Using non-ranged weapons in hand-to-hand or melee combat - knives, sledgehammers, spears, clubs and so on.",
+    "Explosives":"The finding and removal of traps. Also the setting of explosives for demolition purposes.",
+    "Lockpick":"The skill of opening locks without the proper key. The use of lockpicks or electronic lockpicks will greatly enhance this skill.",
+    "Medicine":"General healing skill. Used to heal small cuts, abrasions and other minor ills. In game terms, the use of first aid can heal more hit points over time than just rest.",
+    "Repair":"The practical application of the Science skill, for fixing of broken equipment, machinery and electronics.",
+    "Science":"Covers a variety of high-technology skills, such as computers, biology, physics, and geology",
+    "Sneak":"Quiet movement, and the ability to remain unnoticed. If successful, you will be much harder to locate. You cannot run and sneak at the same time.",
+    "Barter":"Trading and trade-related tasks. The ability to get better prices for items you sell, and lower prices for items you buy.",
+    "Speech":"The ability to communicate in a practical and efficient manner. The skill of convincing others that your position is correct. The ability to lie and not get caught."
   },
   "perkStats":{
-    "Bandolier":[
-      "Ballistic weapon ammo weighs 45% less.",
-      "Ballistic weapon ammo weighs 90% less."
-    ]
-  },
+    "sampleCard":{
+      "name": "Sample Card",
+      "ranks": 2,
+      "rankDescription": [
+        "",
+        ""
+      ]
+    }
+  }
 }

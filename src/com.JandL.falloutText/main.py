@@ -1,60 +1,38 @@
-from colorama import init
-from colorama import Fore, Back, Style
-import gameEngine as engine
+import curses
 import io, json, os
 
-
-def main():
-    # Perk info from https://fallout.fandom.com/wiki/Fallout_76_perks
-
-    # TODO: init variables
-
-    outputLevel = engine.renderEngine.outputLevel
-
-    # Init screen
-
-    # Init win32 ANSI handler
-    init()
-
-    # Init screen to blank slate
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
-
-    # Ask for ruleset name and version
+def main(stdscr):
+    # Clear screen
+    stdscr.clear()
 
     rulesetManifest = io.open("rulesets/manifest.json", "r")
     rulesetManifest = json.load(rulesetManifest)
-    print("Please select one of the following:")
-    for slot in rulesetManifest["availableGames"]:
-        print(rulesetManifest["availableGames"][slot]["callName"])
-    slotID = input("? ")
 
-    # Get ruleset object from json
+    stdscr.addstr(1,2,"Select a game:")
 
     for slot in rulesetManifest["availableGames"]:
-        if slotID == rulesetManifest["availableGames"][slot]["callName"]:
-            # TODO: Add try/except for ruleset.json
-            rules = io.open(rulesetManifest["availableGames"][slot]["manifestLocation"])
-            rules = json.load(rules)
-            break
-        else:
-            continue
 
-    print(outputLevel.WARN
-        + rules["gameInfo"]["title"]
-        + " Version "
-        + str(rules["gameInfo"]["version"])
-        + " Branch "
-        + rules["gameInfo"]["branch"]
-        + "\nRules by "
-        + rules["gameInfo"]["author"]
-    )
+        stdscr.addstr(int(slot.replace("slot",""))+2,2,slot.replace("slot","")+". "+rulesetManifest["availableGames"][slot]["callName"])
 
-    # TODO: run game
-    engine.renderEngine.executeBuffer()
+        stdscr.refresh()
+        slotID = stdscr.getkey()
 
+        # Get ruleset object from json
 
-if __name__ == "__main__":
-    main()
+        for slot in rulesetManifest["availableGames"]:
+            if rulesetManifest["availableGames"]["slot"+slotID]["callName"] == rulesetManifest["availableGames"][slot]["callName"]:
+                # TODO: Add try/except for ruleset.json
+                rules = io.open(rulesetManifest["availableGames"][slot]["manifestLocation"])
+                rules = json.load(rules)
+                break
+            else:
+                continue
+
+        stdscr.clear()
+        stdscr.addstr(1,2,rules["gameInfo"]["title"]+" Version "+str(rules["gameInfo"]["version"])+" Branch "+rules["gameInfo"]["branch"])
+        stdscr.addstr(2,2,"Rules by "+rules["gameInfo"]["author"])
+
+    stdscr.refresh()
+    stdscr.getkey()
+
+curses.wrapper(main)

@@ -16,7 +16,7 @@ outputs:
     description: "The installed python version. Useful when given a version range as input."
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: '.github/dist/index.js'
 branding:
   icon: 'code'
   color: 'yellow'

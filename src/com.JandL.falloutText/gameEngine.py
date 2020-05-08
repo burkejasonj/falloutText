@@ -23,7 +23,7 @@ class renderEngine:
     # TODO: define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
 
     class outputLevel:
-        WARN = "\033[0m\033["
+        WARN = "\033[31;40m"
         INFO = ""
         ERROR = ""
         DEBUG = ""
@@ -34,7 +34,7 @@ class renderEngine:
         # TODO: Process output level into proper formatting
         screenBuffer.append(
             {
-                ("\033[0m\033[3h" + formatting + message + "\033[0m\033[3h"),
+                ("\033[0m\033[3h" + formatting + message + "\033[0m"),
                 [row, column],
             }
         )

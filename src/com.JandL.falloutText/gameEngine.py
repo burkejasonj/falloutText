@@ -24,7 +24,7 @@ class renderEngine:
 
     class outputLevel:
         WARN = "\033[31;40m"
-        INFO = ""
+        INFO = "\033[37;40m"
         ERROR = ""
         DEBUG = ""
 

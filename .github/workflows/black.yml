@@ -18,4 +18,4 @@ jobs:
        - name: Setup Black
          run: python -m pip install black
        - name: Black Code
-         run: python -m black .src/com.JandL.falloutText
+         run: ls

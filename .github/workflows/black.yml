@@ -27,8 +27,6 @@ jobs:
         python3.8 -m pip install --upgrade black
         
     - name: Lint Code
-      run: |
-        python3.8 -m black ./src/com.JandL.falloutText/
-        ls
+      run: python3.8 black ./src/com.JandL.falloutText/
       
     

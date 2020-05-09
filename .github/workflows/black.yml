@@ -7,8 +7,9 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    matrix:
-      branch: [master, V0.1, V0.1-curses]
+    strategy:
+      matrix:
+        branch: [master, V0.1, V0.1-curses]
 
     steps:
     - uses: actions/checkout@v2

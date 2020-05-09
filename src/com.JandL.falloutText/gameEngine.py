@@ -41,7 +41,18 @@ class renderEngine:
         elif outputLevel == "DEBUG":
             outputFormatting = renderEngine.outputLevel.DEBUG
 
-        renderEngine.screenBuffer.append([("\033[0m\033[3h" + outputFormatting + formatting + message + "\033[0m"),[row, column]])
+        renderEngine.screenBuffer.append(
+            [
+                (
+                    "\033[0m\033[3h"
+                    + outputFormatting
+                    + formatting
+                    + message
+                    + "\033[0m"
+                ),
+                [row, column],
+            ]
+        )
 
     # TODO: write to screen (LOOP)
 

@@ -30,23 +30,8 @@ class renderEngine:
 
     # TODO: Process output level into proper formatting
 
-<<<<<<< HEAD
     def writetoBuffer(message, row=0, column=0, outputLevel="INFO"):
         renderEngine.screenBuffer.append([message, [row, column]])
-=======
-        renderEngine.screenBuffer.append(
-            [
-                (
-                    "\033[0m\033[3h"
-                    + outputFormatting
-                    + formatting
-                    + message
-                    + "\033[0m"
-                ),
-                [row, column],
-            ]
-        )
->>>>>>> 48add2c8f7260c5b3a9ea7fa3f4ce2f8f48af5d4
 
     #     renderEngine.screenBuffer.append([("\033[0m\033[3h" + outputFormatting + formatting + message + "\033[0m"),[row, column]])
 

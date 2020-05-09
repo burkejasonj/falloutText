@@ -1,0 +1,33 @@
+name: Black Linter
+
+on:
+  push:
+    branches: [ master, V0.1, V0.1-curses ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    matrix:
+      branch: [master, V0.1, V0.1-curses]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ matrix.branch }}
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Setup Black
+      run: |
+        python3.8 -m pip install --upgrade pip
+        python3.8 -m pip install --upgrade black
+        
+    - name: Lint Code
+      run: |
+        python3.8 -m black ./src/com.JandL.falloutText/
+        ls
+      
+    

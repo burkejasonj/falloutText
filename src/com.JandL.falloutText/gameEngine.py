@@ -1,5 +1,4 @@
-from colorama import init
-from colorama import Fore, Back, Style
+import curses
 from collections import deque
 import io, json, os
 
@@ -16,41 +15,30 @@ class logicEngine:
 
 
 class renderEngine:
-    # TODO: define screen buffer
+    # define screen buffer
 
     screenBuffer = deque()
 
-    # TODO: define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
+    # Define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
 
-    class outputLevel:
-        WARN = Fore.YELLOW + Style.BRIGHT
-        INFO = Fore.WHITE + Style.BRIGHT
-        ERROR = Fore.RED + Style.DIM
-        DEBUG = Fore.CYAN + Style.NORMAL
+    curses.init_pair(1, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # WARN
+    curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)  # INFO
+    curses.init_pair(3, curses.COLOR_RED, curses.COLOR_BLACK)  # ERROR
+    curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)  # DEBUG
 
     # TODO: define calls to screen buffer
 
-    def writetoBuffer(message, row=0, column=0, outputLevel="INFO", formatting=""):
-        # Process output level into proper formatting
-        if outputLevel == "INFO":
-            outputFormatting = renderEngine.outputLevel.INFO
-        elif outputLevel == "WARN":
-            outputFormatting = renderEngine.outputLevel.WARN
-        elif outputLevel == "ERROR":
-            outputFormatting = renderEngine.outputLevel.ERROR
-        elif outputLevel == "DEBUG":
-            outputFormatting = renderEngine.outputLevel.DEBUG
+    # TODO: Process output level into proper formatting
 
-        renderEngine.screenBuffer.append([("\033[0m\033[3h" + outputFormatting + formatting + message + "\033[0m"),[row, column]])
+    def writetoBuffer(message, row=0, column=0, outputLevel="INFO"):
+        renderEngine.screenBuffer.append([message, [row, column]])
 
-    # TODO: write to screen (LOOP)
+    #     renderEngine.screenBuffer.append([("\033[0m\033[3h" + outputFormatting + formatting + message + "\033[0m"),[row, column]])
 
     def executeBuffer():
-
-        # TODO: add reset commands
-
-        # empty screenBuffer
+        # Empty Buffer
         while not len(renderEngine.screenBuffer) <= 0:
-            print(renderEngine.screenBuffer.popleft())
+            writeBuffer = renderEngine.screenBuffer.popleft()
+            stdscr.addstr(writeBuffer[2][1], writeBuffer[2][2], writeBuffer[1])
 
     # TODO: define input calls and pass to logicEngine (LOOP)

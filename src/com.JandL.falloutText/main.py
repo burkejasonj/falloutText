@@ -3,6 +3,23 @@ import gameEngine as engine
 import io, json, os
 
 
+def getRules(stdscr, rulesetManifest):
+
+    stdscr.refresh()
+    slotID = stdscr.getkey()
+
+    # Attempt get ruleset object from json
+
+    try:
+        rules = io.open(rulesetManifest["availableGames"]["slot"+slotID]["manifestLocation"])
+        rules = json.load(rules)
+    except KeyError:
+        stdscr.addstr(1,2,"Please enter a number, silly",curses.color_pair(3))
+        stdscr.refresh()
+        rules = getRules(stdscr, rulesetManifest)
+
+    return rules
+
 def main(stdscr):
     # Clear screen
     stdscr.clear()
@@ -30,55 +47,38 @@ def main(stdscr):
     rulesetManifest = io.open("rulesets/manifest.json", "r")
     rulesetManifest = json.load(rulesetManifest)
 
-    stdscr.addstr(1, 2, "Select a game:")
+    stdscr.addstr(2, 2, "Select a game:")
 
     for slot in rulesetManifest["availableGames"]:
 
         stdscr.addstr(
-            int(slot.replace("slot", "")) + 2,
-            2,
+            int(slot.replace("slot", "")) + 3,
+            3,
             slot.replace("slot", "")
             + ". "
             + rulesetManifest["availableGames"][slot]["callName"],
         )
 
-        stdscr.refresh()
-        slotID = stdscr.getkey()
+    rules = getRules(stdscr, rulesetManifest)
 
-        # Get ruleset object from json
+    stdscr.clear()
+    stdscr.addstr(
+        1,
+        2,
+        rules["gameInfo"]["title"]
+        + " Version "
+        + str(rules["gameInfo"]["version"])
+        + " Branch "
+        + rules["gameInfo"]["branch"],
+        curses.color_pair(1),
+    )
+    stdscr.addstr(
+        2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(1)
+    )
 
-        for slot in rulesetManifest["availableGames"]:
-            if (
-                rulesetManifest["availableGames"]["slot" + slotID]["callName"]
-                == rulesetManifest["availableGames"][slot]["callName"]
-            ):
-                # TODO: Add try/except for ruleset.json
-                rules = io.open(
-                    rulesetManifest["availableGames"][slot]["manifestLocation"]
-                )
-                rules = json.load(rules)
-                break
-            else:
-                continue
+    # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
 
-        stdscr.clear()
-        stdscr.addstr(
-            1,
-            2,
-            rules["gameInfo"]["title"]
-            + " Version "
-            + str(rules["gameInfo"]["version"])
-            + " Branch "
-            + rules["gameInfo"]["branch"],
-            curses.color_pair(1),
-        )
-        stdscr.addstr(
-            2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(1)
-        )
-
-        # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
-
-        engine.renderEngine.executeBuffer(stdscr)
+    engine.renderEngine.executeBuffer(stdscr)
 
     stdscr.refresh()
     stdscr.getkey()

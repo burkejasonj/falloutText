@@ -23,7 +23,7 @@ class renderEngine:
 
     # TODO: Process output level into proper formatting
 
-    def writetoBuffer(message = "", row=0, column=0, outputLevel="INFO"):
+    def writetoBuffer(message="", row=0, column=0, outputLevel="INFO"):
         # TODO: Add formatting support
         if outputLevel == "WARN":
             colorPair = 1
@@ -40,6 +40,11 @@ class renderEngine:
         # Empty Buffer
         while not len(renderEngine.screenBuffer) <= 0:
             writeBuffer = renderEngine.screenBuffer.popleft()
-            stdscr.addstr(writeBuffer[1][0], writeBuffer[1][1], writeBuffer[0], curses.color_pair(writeBuffer[2]))
+            stdscr.addstr(
+                writeBuffer[1][0],
+                writeBuffer[1][1],
+                writeBuffer[0],
+                curses.color_pair(writeBuffer[2]),
+            )
 
     # TODO: define input calls and pass to logicEngine (LOOP)

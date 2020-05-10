@@ -38,6 +38,7 @@ class renderEngine:
 
     def executeBuffer(stdscr):
         # Empty Buffer
+        stdscr.clear()
         while not len(renderEngine.screenBuffer) <= 0:
             writeBuffer = renderEngine.screenBuffer.popleft()
             stdscr.addstr(
@@ -46,5 +47,6 @@ class renderEngine:
                 writeBuffer[0],
                 curses.color_pair(writeBuffer[2]),
             )
+        stdscr.refresh()
 
     # TODO: define input calls and pass to logicEngine (LOOP)

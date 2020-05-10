@@ -34,12 +34,12 @@ class renderEngine:
         elif outputLevl == "DEBUG":
             colorPair = 4
 
-        renderEngine.screenBuffer.append([(str(curses.color_pair(colorPair))+message), [row, column]])
+        renderEngine.screenBuffer.append([message, [row, column], colorPair])
 
     def executeBuffer(stdscr):
         # Empty Buffer
         while not len(renderEngine.screenBuffer) <= 0:
             writeBuffer = renderEngine.screenBuffer.popleft()
-            stdscr.addstr(writeBuffer[1][0], writeBuffer[1][1], writeBuffer[0])
+            stdscr.addstr(writeBuffer[1][0], writeBuffer[1][1], writeBuffer[0], curses.color_pair(writeBuffer[2]))
 
     # TODO: define input calls and pass to logicEngine (LOOP)

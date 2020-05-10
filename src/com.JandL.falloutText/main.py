@@ -6,7 +6,7 @@ import io, json, os
 def main(stdscr):
     # Clear screen
     stdscr.clear()
-    stdscr.addstr(0,0,str(curses.has_colors()))
+    stdscr.addstr(0,0,"COLOR SUPPORT: "+str(curses.has_colors())+" FULL COLOR SUPPORT: "+str(curses.can_change_color()),curses.A_REVERSE)
 
     # Define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
 
@@ -61,7 +61,8 @@ def main(stdscr):
         )
         stdscr.addstr(2, 2, "Rules by " + rules["gameInfo"]["author"])
 
-        engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
+        # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
+
         engine.renderEngine.executeBuffer(stdscr)
 
     stdscr.refresh()

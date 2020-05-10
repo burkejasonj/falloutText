@@ -12,7 +12,11 @@ def main(stdscr):
         "COLOR SUPPORT: "
         + str(curses.has_colors())
         + " FULL COLOR SUPPORT: "
-        + str(curses.can_change_color()),
+        + str(curses.can_change_color())
+        + " SUPPORTED COLORS: "
+        + str(curses.COLORS)
+        + " SUPPORTED COLOR PAIRS: "
+        + str(curses.COLOR_PAIRS),
         curses.A_REVERSE,
     )
 

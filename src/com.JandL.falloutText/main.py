@@ -1,10 +1,19 @@
 import curses
+import gameEngine as engine
 import io, json, os
 
 
 def main(stdscr):
     # Clear screen
     stdscr.clear()
+    stdscr.addstr(0,0,str(curses.has_colors()))
+
+    # Define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
+
+    curses.init_pair(1, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # WARN
+    curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)  # INFO
+    curses.init_pair(3, curses.COLOR_RED, curses.COLOR_BLACK)  # ERROR
+    curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)  # DEBUG
 
     rulesetManifest = io.open("rulesets/manifest.json", "r")
     rulesetManifest = json.load(rulesetManifest)
@@ -51,6 +60,9 @@ def main(stdscr):
             + rules["gameInfo"]["branch"],
         )
         stdscr.addstr(2, 2, "Rules by " + rules["gameInfo"]["author"])
+
+        engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
+        engine.renderEngine.executeBuffer(stdscr)
 
     stdscr.refresh()
     stdscr.getkey()

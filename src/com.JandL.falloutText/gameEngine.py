@@ -19,26 +19,27 @@ class renderEngine:
 
     screenBuffer = deque()
 
-    # Define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
-
-    curses.init_pair(1, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # WARN
-    curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)  # INFO
-    curses.init_pair(3, curses.COLOR_RED, curses.COLOR_BLACK)  # ERROR
-    curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)  # DEBUG
-
     # TODO: define calls to screen buffer
 
     # TODO: Process output level into proper formatting
 
-    def writetoBuffer(message, row=0, column=0, outputLevel="INFO"):
-        renderEngine.screenBuffer.append([message, [row, column]])
+    def writetoBuffer(message = "", row=0, column=0, outputLevel="INFO"):
+        # TODO: Add formatting support
+        if outputLevel == "WARN":
+            colorPair = 1
+        elif outputLevel == "INFO":
+            colorPair = 2
+        elif outputLevel == "ERROR":
+            colorPair = 3
+        elif outputLevl == "DEBUG":
+            colorPair = 4
 
-    #     renderEngine.screenBuffer.append([("\033[0m\033[3h" + outputFormatting + formatting + message + "\033[0m"),[row, column]])
+        renderEngine.screenBuffer.append([(str(curses.color_pair(colorPair))+message), [row, column]])
 
-    def executeBuffer():
+    def executeBuffer(stdscr):
         # Empty Buffer
         while not len(renderEngine.screenBuffer) <= 0:
             writeBuffer = renderEngine.screenBuffer.popleft()
-            stdscr.addstr(writeBuffer[2][1], writeBuffer[2][2], writeBuffer[1])
+            stdscr.addstr(writeBuffer[1][0], writeBuffer[1][1], writeBuffer[0])
 
     # TODO: define input calls and pass to logicEngine (LOOP)

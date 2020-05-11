@@ -78,8 +78,6 @@ def main(stdscr):
 
     # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
 
-    engine.renderEngine.executeBuffer(stdscr)
-
     stdscr.refresh()
     stdscr.getkey()
 

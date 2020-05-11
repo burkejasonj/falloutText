@@ -37,8 +37,9 @@ class renderEngine:
         renderEngine.screenBuffer.append([message, [row, column], colorPair])
 
     def executeBuffer(stdscr):
-        # Empty Buffer
+        # Clear Screen
         stdscr.clear()
+        # Empty Buffer
         while not len(renderEngine.screenBuffer) <= 0:
             writeBuffer = renderEngine.screenBuffer.popleft()
             stdscr.addstr(

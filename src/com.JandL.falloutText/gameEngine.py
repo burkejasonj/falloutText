@@ -1,7 +1,6 @@
-import json
-import io
-import os
+import curses
 from collections import deque
+import io, json, os
 
 
 class logicEngine:
@@ -14,31 +13,41 @@ class logicEngine:
 
     # TODO: parse commands with arguments last
 
+    # TODO: define input calls
+
 
 class renderEngine:
-    # TODO: define screen buffer
+    # Define screen buffer
+    screenBuffer = deque()
 
-    screenBuffer = deque([])
+    # define calls to screen buffer
+    def writetoBuffer(message="", row=0, column=0, outputLevel="INFO"):
+        # Formatting support
+        if outputLevel == "WARN":
+            colorPair = 1
+        elif outputLevel == "INFO":
+            colorPair = 2
+        elif outputLevel == "ERROR":
+            colorPair = 3
+        elif outputLevl == "DEBUG":
+            colorPair = 4
 
-    # TODO: define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
+        # Add to queue for screenBuffer
+        renderEngine.screenBuffer.append([message, [row, column], colorPair])
 
-    class outputLevel:
-        WARN = "\033[33;40m"
-        INFO = "\033[37;40m"
-        ERROR = "\033[31;40m"
-        DEBUG = "\033[36;40m"
+    def executeBuffer(stdscr):
+        # Clear Screen
+        stdscr.clear()
 
-    # TODO: define calls to screen buffer
+        # Write contents of buffer to screen memory
+        while not len(renderEngine.screenBuffer) <= 0:
+            writeBuffer = renderEngine.screenBuffer.popleft()
+            stdscr.addstr(
+                writeBuffer[1][0],
+                writeBuffer[1][1],
+                writeBuffer[0],
+                curses.color_pair(writeBuffer[2]),
+            )
 
-    def writetoBuffer(message, row=0, column=0, outputLevel="INFO", formatting=""):
-        # TODO: Process output level into proper formatting
-        screenBuffer.append(
-            {
-                ("\033[0m\033[3h" + formatting + message + "\033[0m"),
-                [row, column],
-            }
-        )
-
-    # TODO: write to screen (LOOP)
-
-    # TODO: define input calls and pass to logicEngine (LOOP)
+        # Refresh screen
+        stdscr.refresh()

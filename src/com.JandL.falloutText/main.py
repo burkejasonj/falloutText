@@ -76,7 +76,7 @@ def main(stdscr):
         2,
         rules["gameInfo"]["title"]
         + " Version "
-        + str(rules["gameInfo"]["version"])
+        + rules["gameInfo"]["version"]
         + " Branch "
         + rules["gameInfo"]["branch"],
         curses.color_pair(4),

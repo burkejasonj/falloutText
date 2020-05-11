@@ -1,9 +1,10 @@
 {
   "gameInfo":{
     "title":"Fallout: D20 Compliant Edition",
-    "version":0.1,
+    "version":"0.1.1",
     "branch":"dev",
-    "author":"burkejasonj"
+    "author":"burkejasonj",
+    "storyLocation":"rulesets/fallout/v0.1.1/story.json"
   },
   "races":{
     "raceHuman":{

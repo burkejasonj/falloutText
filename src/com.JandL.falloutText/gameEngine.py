@@ -13,18 +13,15 @@ class logicEngine:
 
     # TODO: parse commands with arguments last
 
+    # TODO: define input calls
 
 class renderEngine:
-    # define screen buffer
-
+    # Define screen buffer
     screenBuffer = deque()
 
-    # TODO: define calls to screen buffer
-
-    # TODO: Process output level into proper formatting
-
+    # define calls to screen buffer
     def writetoBuffer(message="", row=0, column=0, outputLevel="INFO"):
-        # TODO: Add formatting support
+        # Formatting support
         if outputLevel == "WARN":
             colorPair = 1
         elif outputLevel == "INFO":
@@ -34,12 +31,14 @@ class renderEngine:
         elif outputLevl == "DEBUG":
             colorPair = 4
 
+        # Add to queue for screenBuffer
         renderEngine.screenBuffer.append([message, [row, column], colorPair])
 
     def executeBuffer(stdscr):
         # Clear Screen
         stdscr.clear()
-        # Empty Buffer
+
+        # Write contents of buffer to screen memory
         while not len(renderEngine.screenBuffer) <= 0:
             writeBuffer = renderEngine.screenBuffer.popleft()
             stdscr.addstr(
@@ -48,6 +47,6 @@ class renderEngine:
                 writeBuffer[0],
                 curses.color_pair(writeBuffer[2]),
             )
-        stdscr.refresh()
 
-    # TODO: define input calls and pass to logicEngine (LOOP)
+        #Refresh screen
+        stdscr.refresh()

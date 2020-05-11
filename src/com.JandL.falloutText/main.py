@@ -23,6 +23,7 @@ def getRules(stdscr, rulesetManifest):
 def main(stdscr):
     # Clear screen
     stdscr.clear()
+    # Debug Bar
     stdscr.addstr(
         0,
         0,
@@ -34,21 +35,24 @@ def main(stdscr):
         + str(curses.COLORS)
         + " SUPPORTED COLOR PAIRS: "
         + str(curses.COLOR_PAIRS),
-        curses.A_REVERSE,
+        curses.color_pair(5),
     )
 
     # Define color defaults based on output level (WARN,INFO,ERROR,DEBUG)
-
     curses.init_pair(1, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # WARN
     curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_BLACK)  # INFO
     curses.init_pair(3, curses.COLOR_RED, curses.COLOR_BLACK)  # ERROR
     curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)  # DEBUG
+    curses.init_pair(5, curses.COLOR_CYAN, curses.COLOR_WHITE)  # DEBUG-BAR
 
+    # Load rulesetManifest
     rulesetManifest = io.open("rulesets/manifest.json", "r")
     rulesetManifest = json.load(rulesetManifest)
 
+    # User prompt on what to do
     stdscr.addstr(2, 2, "Select a game:")
 
+    # List possible games
     for slot in rulesetManifest["availableGames"]:
 
         stdscr.addstr(
@@ -59,8 +63,10 @@ def main(stdscr):
             + rulesetManifest["availableGames"][slot]["callName"],
         )
 
+    # Ask player for ruleset to use and retrieve it from json
     rules = getRules(stdscr, rulesetManifest)
 
+    # Clear screen and add debug info for game
     stdscr.clear()
     stdscr.addstr(
         1,
@@ -70,10 +76,10 @@ def main(stdscr):
         + str(rules["gameInfo"]["version"])
         + " Branch "
         + rules["gameInfo"]["branch"],
-        curses.color_pair(1),
+        curses.color_pair(4),
     )
     stdscr.addstr(
-        2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(1)
+        2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(4)
     )
 
     # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")

@@ -37,7 +37,11 @@ def main(stdscr):
         + " SUPPORTED COLORS: "
         + str(curses.COLORS)
         + " SUPPORTED COLOR PAIRS: "
-        + str(curses.COLOR_PAIRS),
+        + str(curses.COLOR_PAIRS)
+        + " LINES: "
+        + str(curses.LINES)
+        + " COLUMNS: "
+        + str(curses.COLS),
         curses.color_pair(5),
     )
 
@@ -83,7 +87,13 @@ def main(stdscr):
     )
     stdscr.addstr(2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(4))
 
-    # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
+    # Test area for pre-game init
+
+    pc = engine.logicEngine.createCharacter("TEST")
+
+    # Test area for game loop
+
+
 
     stdscr.refresh()
     stdscr.getkey()

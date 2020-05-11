@@ -4,7 +4,22 @@ import io, json, os
 
 
 class logicEngine:
-    pass
+    # TODO: init classes
+    class playerCharacter:
+        def __init__(self, name, lvl, _class, attributes):
+            self.name = name
+            self.lvl = lvl
+            self._class = _class
+            self.attributes = attributes
+
+        def createCharacter(characterType="NPC"):
+            if characterType == "PC":
+                pass
+            elif characterType == "NPC":
+                pass
+            else:
+                raise ValueError
+
     # TODO: break up input
 
     # TODO: define command interpreter by json files

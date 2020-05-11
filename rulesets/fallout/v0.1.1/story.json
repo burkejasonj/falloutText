@@ -1,0 +1,9 @@
+{
+  "storyLayout":{
+    "sizes-allowed43":[[30,80],[60,160],[90,240],[120,320]],
+    "resolutions-allowed43":[[480,640],[960,1280],[1440,1920],[1920,2560]]
+  },
+  "storyIntro":{
+    "StoryPanel":""
+  }
+}

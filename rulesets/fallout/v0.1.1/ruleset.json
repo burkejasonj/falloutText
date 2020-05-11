@@ -1,0 +1,146 @@
+{
+  "gameInfo":{
+    "title":"Fallout: D20 Compliant Edition",
+    "version":0.1,
+    "branch":"dev",
+    "author":"burkejasonj"
+  },
+  "races":{
+    "raceHuman":{
+      "name":"human",
+      "isDefault":true,
+      "statMin":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "statMax":[
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "statDefault":[
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "statPoints":40,
+      "perkPoints":2,
+      "tagPoints":3
+    },
+    "raceGhoul":{
+      "name":"ghoul",
+      "isDefault":false,
+      "statMin":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "statMax":[
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "statDefault":[
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "statPoints":40,
+      "perkPoints":2,
+      "tagPoints":3
+    },
+    "raceMutant":{
+      "name":"mutant",
+      "isDefault":false,
+      "statMin":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "statMax":[
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "statDefault":[
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "statPoints":40,
+      "perkPoints":2,
+      "tagPoints":3
+    }
+  },
+  "primaryStats":{
+    "Strength":"Strength is a measure of your raw physical power. It affects how much you carry, and the damage of all melee attacks.",
+    "Perception":"Perception affects your awareness of nearby enemies, your ability to detect stealthy movement, and your weapon accuracy in V.A.T.S.",
+    "Endurance":"Endurance is a measure of your overall physical fitness. It affects your total Health, the Action Point drain from sprinting, and your resistance to disease.",
+    "Charisma":"Charisma is your ability to lead and help others. It allows you to share your Perk Cards (CHA must be greater than or equal to 3 times the point value of the card you wish to share) and also affects your rewards from Group Quests and prices when you barter.",
+    "Intelligence":"Intelligence is a measure of overall mental acuity, and affects your ability to hack terminals, the condition and durability of items that you craft, and the return you get from scrapping.",
+    "Agility":"Agility is a measure of your overall finesse and reflexes. It affects the number of Action Points in V.A.T.S. and your ability to sneak.",
+    "Luck":"Luck is a measure of your overall good fortune, and affects the recharge rate of critical hits as well as the condition and durability of items you loot."
+  },
+  "skillStats":{
+    "Small Guns":"The use, care and general knowledge of small firearms - pistols, SMGs and rifles.",
+    "Big Guns":"The operation and maintenance of really big guns - miniguns, rocket launchers, flamethrowers and such.",
+    "Energy Weapons":"The care and feeding of energy-based weapons. How to arm and operate weapons that use laser or plasma technology.",
+    "Unarmed":"A combination of martial arts, boxing and other hand-to-hand martial arts. Combat with your hands and feet.",
+    "Melee Weapons":"Using non-ranged weapons in hand-to-hand or melee combat - knives, sledgehammers, spears, clubs and so on.",
+    "Explosives":"The finding and removal of traps. Also the setting of explosives for demolition purposes.",
+    "Lockpick":"The skill of opening locks without the proper key. The use of lockpicks or electronic lockpicks will greatly enhance this skill.",
+    "Medicine":"General healing skill. Used to heal small cuts, abrasions and other minor ills. In game terms, the use of first aid can heal more hit points over time than just rest.",
+    "Repair":"The practical application of the Science skill, for fixing of broken equipment, machinery and electronics.",
+    "Science":"Covers a variety of high-technology skills, such as computers, biology, physics, and geology",
+    "Sneak":"Quiet movement, and the ability to remain unnoticed. If successful, you will be much harder to locate. You cannot run and sneak at the same time.",
+    "Barter":"Trading and trade-related tasks. The ability to get better prices for items you sell, and lower prices for items you buy.",
+    "Speech":"The ability to communicate in a practical and efficient manner. The skill of convincing others that your position is correct. The ability to lie and not get caught."
+  },
+  "perkStats":{
+    "sampleCard":{
+      "name": "Sample Card",
+      "ranks": 2,
+      "rankDescription": [
+        "",
+        ""
+      ]
+    }
+  }
+}

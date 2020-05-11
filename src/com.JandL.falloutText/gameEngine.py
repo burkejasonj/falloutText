@@ -29,8 +29,10 @@ class renderEngine:
             colorPair = 2
         elif outputLevel == "ERROR":
             colorPair = 3
-        elif outputLevl == "DEBUG":
+        elif outputLevel == "DEBUG":
             colorPair = 4
+        elif outputLevel == "DEBUG-BAR":
+            colorPair = 5
 
         # Add to queue for screenBuffer
         renderEngine.screenBuffer.append([message, [row, column], colorPair])

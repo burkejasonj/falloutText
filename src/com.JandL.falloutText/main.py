@@ -11,14 +11,17 @@ def getRules(stdscr, rulesetManifest):
     # Attempt get ruleset object from json
 
     try:
-        rules = io.open(rulesetManifest["availableGames"]["slot"+slotID]["manifestLocation"])
+        rules = io.open(
+            rulesetManifest["availableGames"]["slot" + slotID]["manifestLocation"]
+        )
         rules = json.load(rules)
     except KeyError:
-        stdscr.addstr(1,2,"Please enter a number, silly",curses.color_pair(3))
+        stdscr.addstr(1, 2, "Please enter a number, silly", curses.color_pair(3))
         stdscr.refresh()
         rules = getRules(stdscr, rulesetManifest)
 
     return rules
+
 
 def main(stdscr):
     # Clear screen
@@ -78,9 +81,7 @@ def main(stdscr):
         + rules["gameInfo"]["branch"],
         curses.color_pair(4),
     )
-    stdscr.addstr(
-        2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(4)
-    )
+    stdscr.addstr(2, 2, "Rules by " + rules["gameInfo"]["author"], curses.color_pair(4))
 
     # EXAMPLE: engine.renderEngine.writetoBuffer("Hello World!",3,2,"WARN")
 

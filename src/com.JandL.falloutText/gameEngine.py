@@ -15,6 +15,7 @@ class logicEngine:
 
     # TODO: define input calls
 
+
 class renderEngine:
     # Define screen buffer
     screenBuffer = deque()
@@ -48,5 +49,5 @@ class renderEngine:
                 curses.color_pair(writeBuffer[2]),
             )
 
-        #Refresh screen
+        # Refresh screen
         stdscr.refresh()
